@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": ["decisions", "action_items"],
+  "additionalProperties": false,
+  "properties": {
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "quote", "utterance_index", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "text": {"type": "string", "minLength": 3},
+          "quote": {"type": "string", "minLength": 1},
+          "utterance_index": {"type": "integer", "minimum": 0},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "action_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "quote", "utterance_index", "confidence", "owner", "deadline_text"],
+        "additionalProperties": false,
+        "properties": {
+          "title": {"type": "string", "minLength": 3},
+          "quote": {"type": "string", "minLength": 1},
+          "utterance_index": {"type": "integer", "minimum": 0},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "owner": {"type": ["string", "null"]},
+          "deadline_text": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

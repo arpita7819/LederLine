@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": ["results"],
+  "additionalProperties": false,
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["old_id", "verdict", "rationale"],
+        "additionalProperties": false,
+        "properties": {
+          "old_id": {"type": "integer"},
+          "verdict": {"enum": ["consistent", "contradicts", "supersedes", "unrelated"]},
+          "rationale": {"type": "string"}
+        }
+      }
+    }
+  }
+}
