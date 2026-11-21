@@ -1,81 +1,207 @@
 # Ledgerline
 
-**Decisions that stick. Contradictions that don't slip through.**
+<p align="center">
+  <strong>Decisions that stick. Contradictions that don't slip through.</strong>
+</p>
 
-Ledgerline turns meeting transcripts into reviewable decisions and action items, checks new proposals against approved organizational memory, and tracks approved commitments through completion.
+<p align="center">
+  An AI-powered decision intelligence platform that transforms meeting conversations into structured decisions, actionable tasks, and a searchable memory of team commitments.
+</p>
 
-## Run the integrated website + backend (Windows)
+---
 
-1. Install Python 3.10+ (and ensure `py` is available).
-2. Double-click `start_windows.bat`. The first run creates a virtual environment and installs the backend requirements. Internet access is required for this first installation.
-3. The website opens at **http://127.0.0.1:5173**. The API runs at **http://127.0.0.1:8000**.
-4. Open Settings and confirm that the API says Connected. The app attempts to connect automatically on startup.
+## 🚀 Overview
 
-For macOS/Linux, run `chmod +x start_mac_linux.sh && ./start_mac_linux.sh`.
+Teams make important decisions every day, but those decisions often get buried in meeting notes, forgotten across conversations, or contradicted in future discussions.
 
-## Manual startup
+**Ledgerline** solves this by creating a persistent decision memory for teams. It analyzes meeting transcripts, extracts key decisions and action items, tracks ownership and deadlines, and detects conflicts between new proposals and previously approved decisions.
 
-Terminal 1 — backend:
+Ledgerline helps teams move beyond simply recording meetings — toward remembering decisions, maintaining consistency, and ensuring accountability.
 
-```bash
-cd backend
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env  # Windows: copy .env.example .env
-uvicorn app.main:app --reload
+---
+
+## 💡 The Problem
+
+- Important decisions get lost in long meeting transcripts.
+- Teams repeatedly discuss topics that have already been resolved.
+- New proposals may contradict previously approved decisions.
+- Action items lack clear ownership or deadlines.
+- There is no reliable connection between what teams decide and what they actually execute.
+
+## ✨ The Solution
+
+Ledgerline converts unstructured meeting conversations into structured, searchable, and actionable organizational knowledge.
+
+By combining AI-powered extraction with decision memory and conflict detection, it helps teams preserve context, review commitments, and identify inconsistencies before they lead to confusion.
+
+---
+
+## 🔥 Key Features
+
+| Feature | Description |
+|---|---|
+| 📝 Meeting Intelligence | Extract decisions and action items from meeting transcripts. |
+| 🧠 Decision Memory | Store and retrieve previously approved decisions. |
+| ⚠️ Conflict Detection | Identify new proposals that contradict existing decisions. |
+| 🔍 Contextual Comparison | Compare new decisions with historical context. |
+| ✅ Review Queue | Review, verify, and approve extracted information. |
+| 📋 Execution Board | Track tasks, owners, deadlines, and status. |
+| 📊 Dashboard | Get a centralized overview of decisions and commitments. |
+| 🤖 AI-Assisted Processing | Automate the conversion of conversations into structured information. |
+
+---
+
+## ⚙️ How It Works
+
+```mermaid
+flowchart TD
+    A[Meeting Transcript] --> B[Transcript Processing]
+    B --> C[Decision & Action Extraction]
+    C --> D[Review Queue]
+    D --> E[Approval]
+    E --> F[Decision Memory]
+    F --> G[Conflict Detection]
+    G --> H[Conflict Review]
+    E --> I[Execution Board]
+    I --> J[Task Tracking]
 ```
 
-Terminal 2 — website (from repository root):
+1. **Input** – Upload or provide a meeting transcript.
+2. **Extract** – Identify decisions, commitments, action items, owners, and deadlines.
+3. **Review** – Verify extracted information before approving it.
+4. **Remember** – Save approved decisions into persistent decision memory.
+5. **Detect** – Compare future proposals against existing decisions.
+6. **Act** – Track approved action items through the execution board.
+
+---
+
+## 🖥️ Product Modules
+
+### Dashboard
+A centralized overview of team decisions, pending reviews, open action items, and progress.
+
+### Decision Memory
+A structured record of approved decisions that preserves context and makes previous commitments easier to retrieve.
+
+### Conflict Detection
+Identifies potential contradictions between new proposals and existing decisions, helping teams recognize inconsistencies early.
+
+### Review Queue
+Provides a human review step to validate extracted decisions before they become part of the team's decision history.
+
+### Execution Board
+Turns meeting commitments into trackable tasks with ownership, deadlines, and progress status.
+
+---
+
+## 🏗️ Architecture
+
+Ledgerline follows a frontend–backend architecture:
+
+- **Frontend** – Interactive dashboard and decision management interface.
+- **Backend API** – Handles processing, business logic, data operations, and integrations.
+- **AI Processing Layer** – Extracts structured decisions and action items from meeting content.
+- **Decision Memory** – Stores approved decisions for future retrieval and comparison.
+- **Conflict Detection Engine** – Checks new proposals against historical decisions.
+- **Task Management Layer** – Organizes commitments into trackable tasks.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Web-based UI |
+| Backend | FastAPI |
+| API | REST |
+| AI | AI-powered transcript extraction |
+| Data Processing | Transcript parsing & structured extraction |
+| Storage | Structured data storage |
+| Documentation | FastAPI Swagger UI |
+
+> The repository's implementation may include additional technologies and integrations. Refer to the source code and configuration files for the complete stack.
+
+---
+
+## 🎯 Use Cases
+
+- **Project Teams** — Maintain alignment on project scope, requirements, and deadlines.
+- **Product Teams** — Preserve feature decisions and prevent conflicting requirements.
+- **Startup Teams** — Track discussions, ownership, and execution.
+- **Remote Teams** — Maintain organizational memory across distributed meetings.
+- **Management Teams** — Review decisions and monitor follow-through.
+
+---
+
+## 🌟 What Makes Ledgerline Different?
+
+Traditional meeting tools focus on recording, transcribing, or summarizing conversations.
+
+Ledgerline focuses on what happens **after the conversation**.
+
+It connects:
+
+**Conversation → Decision → Memory → Conflict Detection → Execution**
+
+Rather than treating every meeting as an isolated event, Ledgerline creates continuity between past decisions and future actions.
+
+---
+
+## 🔐 Reliability & Human Review
+
+AI-generated decisions should not automatically become unquestioned organizational truth.
+
+Ledgerline incorporates a review workflow that allows extracted information to be checked and approved. This helps maintain decision quality while reducing manual effort.
+
+---
+
+## 🚧 Future Enhancements
+
+- Real-time meeting integrations
+- Calendar and conferencing platform integrations
+- Decision timeline and history visualization
+- Team collaboration and role-based access
+- Notifications for unresolved conflicts
+- Advanced analytics for decision and task completion
+- Improved semantic conflict detection
+
+---
+
+## ▶️ Getting Started
+
+Clone the repository:
 
 ```bash
-cd demo
-python -m http.server 5173
+git clone https://github.com/arpita7819/LederLine.git
+cd LederLine
 ```
 
-Open http://127.0.0.1:5173. API docs are at http://127.0.0.1:8000/docs.
+Follow the backend and frontend setup instructions in the repository to install dependencies, configure environment variables, and start the application.
 
-## Backend configuration
+---
 
-Edit `backend/.env`:
+## 📌 Project Status
 
-- `DEMO_MODE=auto`: uses the deterministic backend extractor when no Anthropic key is configured; uses Claude when `ANTHROPIC_API_KEY` is present.
-- `DEMO_MODE=on`: force deterministic extraction.
-- `DEMO_MODE=off`: require live Anthropic extraction.
-- `DATABASE_URL=sqlite:///./ledgerline.db`: SQLite database created in the backend working directory.
-- `GITHUB_TOKEN` and `GITHUB_REPO=owner/repository`: optional real GitHub Issues publishing. Without these, the backend uses its mock tracker.
-- SMTP settings are optional and only needed to send email digests.
+Ledgerline is an actively developed project. Some features, integrations, and workflows may evolve as development progresses.
 
-Never commit `.env` or API tokens.
+---
 
-## What is connected end-to-end
+## 👩‍💻 Team / Developer
 
-When the API is reachable, the website uses the FastAPI database as its source of truth for:
+Built as an AI-powered productivity and decision intelligence project.
 
-- Meeting creation from pasted text or `.txt`, `.vtt`, `.srt` transcripts.
-- Backend transcript parsing, speaker attribution and extraction.
-- Pending decisions and action items in the human review queue.
-- Cross-meeting decision conflict detection and conflict resolution.
-- Approved decision memory and source evidence.
-- Action-item edits, owner/deadline validation and approval.
-- Task board status changes, with the backend tracker adapter updated first.
-- Meeting history, audit events and dashboard metrics.
+**GitHub:** [@arpita7819](https://github.com/arpita7819)
 
-The UI automatically falls back to its browser-local demonstration data if the API is offline. Local demo records and backend database records are separate.
+---
 
-## Extraction modes and integrations
+## 📄 License
 
-The backend includes a deterministic mock extractor for no-key demos and an Anthropic JSON extraction path for configured live use. The GitHub Issues adapter can create real issues only when valid credentials and a repository are configured. Otherwise the mock tracker records approved tasks locally in the backend database. The backend also includes reminders, notification and weekly digest endpoints.
+This project is currently available for review and development. Licensing details can be added when a license is selected.
 
-## Important limitations
+---
 
-This is a hackathon prototype, not a production multi-tenant SaaS. It does not yet include user authentication/authorization, tenant isolation, raw-audio transcription/voice diarization, Slack/Jira integration or production monitoring. The local mock extractor is deterministic and should not be described as an LLM. Before handling real company data, add authentication, authorization, rate limiting, tenant isolation, secure deployment secrets, backups and monitoring.
+<p align="center">
+  <strong>Ledgerline</strong><br/>
+  Decisions that stick. Contradictions that don't slip through.
+</p>
 
-## Tests
-
-```bash
-cd backend
-../backend/.venv/bin/pytest   # macOS/Linux
-# Windows: .venv\Scripts\python -m pytest
-```
