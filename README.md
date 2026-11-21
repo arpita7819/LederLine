@@ -191,6 +191,7 @@ Ledgerline is an actively developed project. Some features, integrations, and wo
 Built as an AI-powered productivity and decision intelligence project.
 
 **GitHub:** [@arpita7819](https://github.com/arpita7819)
+**GitHub:** [@Shivani-alt395 ](https://github.com/Shivani-alt395)
 
 ---
 
